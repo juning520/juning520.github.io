@@ -169,7 +169,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/05/18/day3/" class="post-title-link" itemprop="url">day2</a>
+            <a href="/2020/05/18/day3/" class="post-title-link" itemprop="url">html5基本语法</a>
         </h2>
 
         <div class="post-meta">
@@ -178,17 +178,23 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-05-18 11:51:46 / 修改时间：11:58:49" itemprop="dateCreated datePublished" datetime="2020-05-18T11:51:46+08:00">2020-05-18</time>
+              <time title="创建时间：2020-05-18 11:51:46" itemprop="dateCreated datePublished" datetime="2020-05-18T11:51:46+08:00">2020-05-18</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-16 22:56:32" itemprop="dateModified" datetime="2020-07-16T22:56:32+08:00">2020-07-16</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/python%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">python基础</span></a>
+                  <a href="/categories/web%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">web基础</span></a>
                 </span>
             </span>
 
@@ -203,7 +209,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h1 id="html概述和基本结构"><a href="#html概述和基本结构" class="headerlink" title="html概述和基本结构"></a>html概述和基本结构</h1><h2 id="html概述"><a href="#html概述" class="headerlink" title="html概述"></a>html概述</h2><p>HTML是 HyperText Mark-up Language 的首字母简写，意思是超文本标记语言，超文本指的是超链接，标记指的是标签，是一种用来制作网页的语言，这种语言由一个个的标签组成，用这种语言制作的文件保存的是一个文本文件，文件的扩展名为html或者htm，一个html文件就是一个网页，html文件用编辑器打开显示的是文本，可以用文本的方式编辑它，如果用浏览器打开，浏览器会按照标签描述内容将文件渲染成网页，显示的网页可以从一个网页链接跳转到另外一个网页。</p>
+<h2 id="html基本结构"><a href="#html基本结构" class="headerlink" title="html基本结构"></a>html基本结构</h2><p>一个html基本结构如下：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">    &lt;head&gt;            </span><br><span class="line">        &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">        &lt;title&gt;网页标题&lt;&#x2F;title&gt;</span><br><span class="line">    &lt;&#x2F;head&gt;</span><br><span class="line">    &lt;body&gt;</span><br><span class="line">          网页显示内容</span><br><span class="line">    &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<p>第一行是文档声明，第二行“&lt;html&gt;”标签和最后一行“&lt;/html&gt;”定义html文档的整体,“&lt;html&gt;”标签中的‘lang=“en”’定义网页的语言为英文,定义成中文是’lang=”zh-CN”‘,不定义也没什么影响,它一般作为分析统计用。“&lt;head&gt;”标签和“&lt;body&gt;”标签是它的第一层子元素,“&lt;head&gt;”标签里面负责对网页进行一些设置以及定义标题,设置包括定义网页的编码格式,外链css样式文件和javascript文件等,设置的内容不会显示在网页上,标题的内容会显示在标题栏,“&lt;body&gt;”内编写网页上显示的内容。</p>
+<h2 id="文档类型"><a href="#文档类型" class="headerlink" title="文档类型"></a>文档类型</h2><p>目前常用的两种文档类型是xhtml 1.0和html5  </p>
+<h3 id="xhtml-1-0"><a href="#xhtml-1-0" class="headerlink" title="xhtml 1.0"></a>xhtml 1.0</h3><p>xhtml 1.0 是html5之前的一个常用的版本，目前许多网站仍然使用此版本。<br>此版本文档用sublime text创建方法： html:xt + tab<br>文档示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html PUBLIC &quot;-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTD XHTML 1.0 Transitional&#x2F;&#x2F;EN&quot; &quot;http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1-transitional.dtd&quot;&gt;</span><br><span class="line">&lt;html xmlns&#x3D;&quot;http:&#x2F;&#x2F;www.w3.org&#x2F;1999&#x2F;xhtml&quot; xml:lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta http-equiv&#x3D;&quot;Content-Type&quot; content&#x3D;&quot;text&#x2F;html;charset&#x3D;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt; xhtml 1.0 文档类型 &lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="html5"><a href="#html5" class="headerlink" title="html5"></a>html5</h3><p>pc端可以使用xhtml 1.0，也可以使用html5，html5是向下兼容的<br>此版本文档用sublime text创建方法： html:5 + tab 或者 ! + tab<br>文档示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang&#x3D;&quot;en&quot;&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt;</span><br><span class="line">    &lt;title&gt; html5文档类型 &lt;&#x2F;title&gt;</span><br><span class="line">&lt;&#x2F;head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="两种文档的区别"><a href="#两种文档的区别" class="headerlink" title="两种文档的区别"></a>两种文档的区别</h2><p>1、文档声明和编码声明<br>2、html5新增了标签元素以及元素属性  </p>
+<h2 id="html注释："><a href="#html注释：" class="headerlink" title="html注释："></a>html注释：</h2><p>html文档代码中可以插入注释，注释是对代码的说明和解释，注释的内容不会显示在页面上，html代码中插入注释的方法是：<br><code>&lt;!-- 这是一段注释  --&gt;</code></p>
+
       
     </div>
 
@@ -371,7 +388,7 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
