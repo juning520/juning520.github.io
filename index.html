@@ -155,6 +155,111 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://pythonj.com/2020/07/19/day5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.gif">
+      <meta itemprop="name" content="juning520">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PythonJ">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/19/day5/" class="post-title-link" itemprop="url">css</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-07-19 17:31:12 / 修改时间：18:10:48" itemprop="dateCreated datePublished" datetime="2020-07-19T17:31:12+08:00">2020-07-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E5%9F%BA%E7%A1%80/" itemprop="url" rel="index"><span itemprop="name">web基础</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="css基本语法及页面引用"><a href="#css基本语法及页面引用" class="headerlink" title="css基本语法及页面引用"></a>css基本语法及页面引用</h1><h2 id="css基本语法"><a href="#css基本语法" class="headerlink" title="css基本语法"></a>css基本语法</h2><p>css的定义方法是:<br>选择器 { 属性:值; 属性:值; 属性:值;}<br>选择器是将样式和页面元素关联起来的名称，属性是希望设置的样式属性每个属性有一个或多个值。代码示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*</span><br><span class="line">    css注释 ctrl+shift+&quot;&#x2F;&quot;</span><br><span class="line">*&#x2F;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">div&#123; </span><br><span class="line">    width:100px; </span><br><span class="line">    height:100px; </span><br><span class="line">    color:red </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="css页面引入方法："><a href="#css页面引入方法：" class="headerlink" title="css页面引入方法："></a>css页面引入方法：</h2><ol>
+<li>外联式：通过link标签，链接到外部样式表到页面中。<br><code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;css/main.css&quot;&gt;</code></li>
+<li>嵌入式：通过style标签，在网页上创建嵌入的样式表。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;</span><br><span class="line">    div&#123; width:100px; height:100px; color:red &#125;</span><br><span class="line">    ......</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure></li>
+<li>内联式：通过标签的style属性，在标签上直接写样式。<br><code>&lt;div style=&quot;width:100px; height:100px; color:red &quot;&gt;......&lt;/div&gt;</code></li>
+</ol>
+<h2 id="css文本设置"><a href="#css文本设置" class="headerlink" title="css文本设置"></a>css文本设置</h2><p>常用的应用文本的css样式：</p>
+<ul>
+<li>color 设置文字的颜色，如： color:red;</li>
+<li>font-size 设置文字的大小，如：font-size:12px;</li>
+<li>font-family 设置文字的字体，如：font-family:’微软雅黑’;</li>
+<li>font-style 设置字体是否倾斜，如：font-style:’normal’; 设置不倾斜，font-style:’italic’;设置文字倾斜</li>
+<li>font-weight设置文字是否加粗,如：font-weight:bold; 设置加粗 font-weight:normal 设置不加粗</li>
+<li>line-height设置文字的行高,设置行高相当于在每行文字的上下同时加间距， 如：line-height:24px;</li>
+<li>font 同时设置文字的几个属性,写的顺序有兼容问题，建议按照如下顺序写： font：是否加粗 字号/行高 字体；如： font:normal 12px/36px ‘微软雅黑’;</li>
+<li>text-decoration 设置文字的下划线，如：text-decoration:none; 将文字下划线去掉</li>
+<li>text-indent 设置文字首行缩进，如：text-indent:24px; 设置文字首行缩进24px 行高示例图片</li>
+<li>text-align 设置文字水平对齐方式，如text-align:center 设置文字水平居中</li>
+</ul>
+<h2 id="css颜色表示法"><a href="#css颜色表示法" class="headerlink" title="css颜色表示法"></a>css颜色表示法</h2><p>css颜色值主要有三种表示方法：  </p>
+<ol>
+<li>颜色名表示，比如：red 红色，gold 金色</li>
+<li>rgb表示，比如：rgb(255,0,0)表示红色</li>
+<li>16进制数值表示，比如：#ff0000 表示红色，这种可以简写成 #f00</li>
+</ol>
+<h2 id="css选择器"><a href="#css选择器" class="headerlink" title="css选择器"></a>css选择器</h2><p>常用的选择器有如下几种：</p>
+<h3 id="1、标签选择器"><a href="#1、标签选择器" class="headerlink" title="1、标签选择器"></a>1、标签选择器</h3><p>标签选择器，此种选择器影响范围大，建议尽量应用在层级选择器中。<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">*&#123;margin:0;padding:0&#125;</span><br><span class="line">div&#123;color:red&#125;   </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div&gt;....&lt;&#x2F;div&gt;   &lt;!-- 对应以上两条样式 --&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;....&lt;&#x2F;div&gt;   &lt;!-- 对应以上两条样式 --&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="2、id选择器"><a href="#2、id选择器" class="headerlink" title="2、id选择器"></a>2、id选择器</h3><p>通过id名来选择元素，元素的id名称不能重复，所以一个样式设置项只能对应于页面上一个元素，不能复用，id名一般给程序使用，所以不推荐使用id作为选择器。<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#box&#123;color:red&#125; </span><br><span class="line"></span><br><span class="line">&lt;div id&#x3D;&quot;box&quot;&gt;....&lt;&#x2F;div&gt;   &lt;!-- 对应以上一条样式，其它元素不允许应用此样式 --&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="3、类选择器"><a href="#3、类选择器" class="headerlink" title="3、类选择器"></a>3、类选择器</h3><p>通过类名来选择元素，一个类可应用于多个元素，一个元素上也可以使用多个类，应用灵活，可复用，是css中应用最多的一种选择器。<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.red&#123;color:red&#125;</span><br><span class="line">.big&#123;font-size:20px&#125;</span><br><span class="line">.mt10&#123;margin-top:10px&#125; </span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;red&quot;&gt;....&lt;&#x2F;div&gt;</span><br><span class="line">&lt;h1 class&#x3D;&quot;red big mt10&quot;&gt;....&lt;&#x2F;h1&gt;</span><br><span class="line">&lt;p class&#x3D;&quot;red mt10&quot;&gt;....&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="4、层级选择器"><a href="#4、层级选择器" class="headerlink" title="4、层级选择器"></a>4、层级选择器</h3><p>主要应用在选择父元素下的子元素，或者子元素下面的子元素，可与标签元素结合使用，减少命名，同时也可以通过层级，防止命名冲突。<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.box span&#123;color:red&#125;</span><br><span class="line">.box .red&#123;color:pink&#125;</span><br><span class="line">.red&#123;color:red&#125;</span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;box&quot;&gt;</span><br><span class="line">    &lt;span&gt;....&lt;&#x2F;span&gt;</span><br><span class="line">    &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;red&quot;&gt;....&lt;&#x2F;a&gt;</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">&lt;h3 class&#x3D;&quot;red&quot;&gt;....&lt;&#x2F;h3&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="5、组选择器"><a href="#5、组选择器" class="headerlink" title="5、组选择器"></a>5、组选择器</h3><p>多个选择器，如果有同样的样式设置，可以使用组选择器。<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box1,.box2,.box3&#123;width:100px;height:100px&#125;</span><br><span class="line">.box1&#123;background:red&#125;</span><br><span class="line">.box2&#123;background:pink&#125;</span><br><span class="line">.box2&#123;background:gold&#125;</span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;box1&quot;&gt;....&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;box2&quot;&gt;....&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;box3&quot;&gt;....&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="6、伪类及伪元素选择器"><a href="#6、伪类及伪元素选择器" class="headerlink" title="6、伪类及伪元素选择器"></a>6、伪类及伪元素选择器</h3><p>常用的伪类选择器有hover，表示鼠标悬浮在元素上时的状态，伪元素选择器有before和after,它们可以通过样式在元素中插入内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.box1:hover&#123;color:red&#125;</span><br><span class="line">.box2:before&#123;content:&#39;行首文字&#39;;&#125;</span><br><span class="line">.box3:after&#123;content:&#39;行尾文字&#39;;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;div class&#x3D;&quot;box1&quot;&gt;....&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;box2&quot;&gt;....&lt;&#x2F;div&gt;</span><br><span class="line">&lt;div class&#x3D;&quot;box3&quot;&gt;....&lt;&#x2F;div&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://pythonj.com/2020/07/17/day4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -260,7 +365,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-18 09:48:18" itemprop="dateModified" datetime="2020-07-18T09:48:18+08:00">2020-07-18</time>
+                <time title="修改时间：2020-07-19 17:30:56" itemprop="dateModified" datetime="2020-07-19T17:30:56+08:00">2020-07-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -570,7 +675,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
