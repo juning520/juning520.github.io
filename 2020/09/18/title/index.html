@@ -28,7 +28,7 @@
 <meta property="og:description" content="Linux 主要目录速查表 &#x2F;：根目录，一般根目录下只存放目录，在 linux 下有且只有一个根目录，所有的东西都是从这里开始当在终端里输入 &#x2F;home，其实是在告诉电脑，先从 &#x2F;（根目录）开始，再进入到 home 目录 &#x2F;bin、&#x2F;usr&#x2F;bin：可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等 &#x2F;boot：放置 linux 系统启动时用到的一些文件，如 linux 的内核文">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-18T10:36:16.000Z">
-<meta property="article:modified_time" content="2020-09-19T12:28:33.593Z">
+<meta property="article:modified_time" content="2020-09-20T12:38:46.134Z">
 <meta property="article:author" content="juning520">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
@@ -192,7 +192,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-19 20:28:33" itemprop="dateModified" datetime="2020-09-19T20:28:33+08:00">2020-09-19</time>
+                <time title="修改时间：2020-09-20 20:38:46" itemprop="dateModified" datetime="2020-09-20T20:38:46+08:00">2020-09-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -422,6 +422,190 @@
 <li>more：分屏显示内容</li>
 <li>grep：在命令执行结果的基础上查询指定的文本</li>
 </ul>
+<h1 id="远程管理常用命令"><a href="#远程管理常用命令" class="headerlink" title="远程管理常用命令"></a>远程管理常用命令</h1><ul>
+<li>关机/重启<ul>
+<li>shutdown</li>
+</ul>
+</li>
+<li>查看或配置网卡信息<ul>
+<li>ifconfig</li>
+<li>ping</li>
+</ul>
+</li>
+<li>远程登录和复制文件<ul>
+<li>ssh</li>
+<li>scp</li>
+</ul>
+</li>
+</ul>
+<h2 id="关机"><a href="#关机" class="headerlink" title="关机"></a>关机</h2><p>shutdown 选项 时间    shutdown    关机／重新启动</p>
+<h3 id="shutdown"><a href="#shutdown" class="headerlink" title="shutdown"></a>shutdown</h3><ul>
+<li>shutdown 命令可以 安全 关闭 或者 重新启动系统</li>
+<li>-r    重新启动<br>提示：<br>不指定选项和参数，默认表示 1 分钟之后 关闭电脑<br>远程维护服务器时，最好不要关闭系统，而应该重新启动系统<br>常用命令示例<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 重新启动操作系统，其中 now 表示现在</span><br><span class="line">$ shutdown -r now</span><br><span class="line"></span><br><span class="line"># 立刻关机，其中 now 表示现在</span><br><span class="line">$ shutdown now</span><br><span class="line"></span><br><span class="line"># 系统在今天的 20:25 会关机</span><br><span class="line">$ shutdown 20:25</span><br><span class="line"></span><br><span class="line"># 系统再过十分钟后自动关机</span><br><span class="line">$ shutdown +10</span><br><span class="line"></span><br><span class="line"># 取消之前指定的关机计划</span><br><span class="line">$ shutdown -c</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="查看或配置网卡信息"><a href="#查看或配置网卡信息" class="headerlink" title="查看或配置网卡信息"></a>查看或配置网卡信息</h2><p>ifconfig查看/配置计算机当前的网卡配置信息<br>ping 检测到目标 ip地址 的连接是否正常</p>
+<h3 id="网卡-和-IP-地址"><a href="#网卡-和-IP-地址" class="headerlink" title="网卡 和 IP 地址"></a>网卡 和 IP 地址</h3><p>网卡：</p>
+<ul>
+<li>网卡是一个专门负责网络通讯的硬件设备</li>
+<li>IP 地址是设置在网卡上的地址信息<br>我们可以把 电脑 比作 电话，网卡 相当于 SIM 卡，IP 地址 相当于 电话号码<br>IP 地址：</li>
+<li>注意：每台电脑的 IP 地址不能相同，否则会出现 IP 地址冲突，并且没有办法正常通讯</li>
+</ul>
+<h3 id="ifconfig"><a href="#ifconfig" class="headerlink" title="ifconfig"></a>ifconfig</h3><ul>
+<li>ifconfig 可以查看／配置计算机当前的网卡配置信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 查看网卡配置信息</span><br><span class="line">$ ifconfig</span><br><span class="line"></span><br><span class="line"># 查看网卡对应的 IP 地址</span><br><span class="line">$ ifconfig | grep inet</span><br></pre></td></tr></table></figure>
+提示：一台计算机中有可能会有一个 物理网卡 和 多个虚拟网卡，在 Linux 中物理网卡的名字通常以 ensXX 表示</li>
+</ul>
+<p>127.0.0.1 被称为 本地回环/环回地址，一般用来测试本机网卡是否正常</p>
+<h3 id="ping"><a href="#ping" class="headerlink" title="ping"></a>ping</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 检测到目标主机是否连接正常</span><br><span class="line">$ ping IP地址</span><br><span class="line"></span><br><span class="line"># 检测本地网卡工作正常</span><br><span class="line">$ ping 127.0.0.1</span><br></pre></td></tr></table></figure>
+<ul>
+<li>ping 一般用于检测当前计算机到目标计算机之间的网络 是否通畅，数值越大，速度越慢<ul>
+<li>ping 的工作原理与潜水艇的声纳相似，ping 这个命令就是取自 声纳的声音</li>
+<li>网络管理员之间也常将 ping 用作动词 —— ping 一下计算机X，看他是否开着</li>
+</ul>
+</li>
+<li>原理：网络上的机器都有 唯一确定的 IP 地址，我们给目标 IP 地址发送一个数据包，对方就要返回一个数据包，根据返回的数据包以及时间，我们可以确定目标主机的存在<br>提示：在 Linux 中，想要终止一个终端程序的执行，绝大多数都可以使用 CTRL + C</li>
+</ul>
+<h2 id="远程登录和复制文件"><a href="#远程登录和复制文件" class="headerlink" title="远程登录和复制文件"></a>远程登录和复制文件</h2><p>ssh 用户名@ip        关机／重新启动<br>scp 用户名@ip:文件名或路径 用远程复制文件</p>
+<h3 id="ssh-基础（重点）"><a href="#ssh-基础（重点）" class="headerlink" title="ssh 基础（重点）"></a>ssh 基础（重点）</h3><p>在 Linux 中 SSH 是 非常常用 的工具，通过 SSH 客户端 我们可以连接到运行了 SSH 服务器 的远程机器上</p>
+<ul>
+<li>SSH 客户端是一种使用 Secure Shell（SSH） 协议连接到远程计算机的软件程序</li>
+<li>SSH 是目前较可靠，专为远程登录会话和其他网络服务 提供安全性的协议<ul>
+<li>利用 SSH 协议 可以有效防止远程管理过程中的信息泄露</li>
+<li>通过 SSH 协议 可以对所有传输的数据进行加密，也能够防止 DNS 欺骗和 IP 欺骗</li>
+</ul>
+</li>
+<li>SSH 的另一项优点是传输的数据可以是经过压缩的，所以可以加快传输的速度<br>域名 和 端口号<br>域名:</li>
+<li>由一串 用点分隔 的名字组成，例如：<a href="http://www.itcast.cn" target="_blank" rel="noopener">www.itcast.cn</a></li>
+<li>是 IP 地址 的别名，方便用户记忆<br>端口号:</li>
+<li>IP 地址：通过 IP 地址 找到网络上的 计算机</li>
+<li>端口号：通过 端口号 可以找到 计算机上运行的应用程序<ul>
+<li>SSH 服务器 的默认端口号是 22，如果是默认端口号，在连接的时候，可以省略<br>常见服务端口号列表：<br>01    SSH 服务器    22<br>02    Web 服务器    80<br>03    HTTPS    443<br>04    FTP 服务器    21<br>SSH 客户端的简单使用<br><code>ssh [-p port] user@remote</code></li>
+</ul>
+</li>
+<li>user 是在远程机器上的用户名，如果不指定的话默认为当前用户</li>
+<li>remote 是远程机器的地址，可以是 IP／域名，或者是 后面会提到的别名</li>
+<li>port 是 SSH Server 监听的端口，如果不指定，就为默认值 22<br>提示：</li>
+<li>使用 exit 退出当前用户的登录<br>注意：</li>
+<li>ssh 这个终端命令只能在 Linux 或者 UNIX 系统下使用</li>
+<li>如果在 Windows 系统中，可以安装 PuTTY 或者 XShell 客户端软件即可<br>提示：</li>
+<li>在工作中，SSH 服务器的端口号很有可能不是 22，如果遇到这种情况就需要使用 -p 选项，指定正确的端口号，否则无法正常连接到服务器<br>Windows 下 SSH 客户端的安装</li>
+<li>Putty <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html" target="_blank" rel="noopener">http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html</a></li>
+<li>XShell <a href="http://xshellcn.com" target="_blank" rel="noopener">http://xshellcn.com</a></li>
+</ul>
+<h2 id="scp"><a href="#scp" class="headerlink" title="scp"></a>scp</h2><ul>
+<li>scp 就是 secure copy，是一个在 Linux 下用来进行 远程拷贝文件 的命令</li>
+<li>它的地址格式与 ssh 基本相同，需要注意的是，在指定端口时用的是大写的 -P 而不是小写的<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 把本地当前目录下的 01.py 文件 复制到 远程 家目录下的 Desktop&#x2F;01.py</span><br><span class="line"># 注意：&#96;:&#96; 后面的路径如果不是绝对路径，则以用户的家目录作为参照路径</span><br><span class="line">scp -P port 01.py user@remote:Desktop&#x2F;01.py</span><br><span class="line"></span><br><span class="line"># 把远程 家目录下的 Desktop&#x2F;01.py 文件 复制到 本地当前目录下的 01.py</span><br><span class="line">scp -P port user@remote:Desktop&#x2F;01.py 01.py</span><br><span class="line"></span><br><span class="line"># 加上 -r 选项可以传送文件夹</span><br><span class="line"># 把当前目录下的 demo 文件夹 复制到 远程 家目录下的 Desktop</span><br><span class="line">scp -r demo user@remote:Desktop</span><br><span class="line"></span><br><span class="line"># 把远程 家目录下的 Desktop 复制到 当前目录下的 demo 文件夹</span><br><span class="line">scp -r user@remote:Desktop demo</span><br></pre></td></tr></table></figure></li>
+<li>-r    若给出的源文件是目录文件，则 scp 将递归复制该目录下的所有子目录和文件，目标文件必须为一个目录名</li>
+<li>-P    若远程 SSH 服务器的端口不是 22，需要使用大写字母 -P 选项指定端口<br>注意：</li>
+<li>scp 这个终端命令只能在 Linux 或者 UNIX 系统下使用</li>
+<li>如果在 Windows 系统中，可以安装 PuTTY，使用 pscp 命令行工具或者安装 FileZilla 使用 FTP 进行文件传输<br>FileZilla</li>
+<li>官方网站：<a href="https://www.filezilla.cn/download/client" target="_blank" rel="noopener">https://www.filezilla.cn/download/client</a></li>
+<li>FileZilla 在传输文件时，使用的是 FTP 服务 而不是 SSH 服务，因此端口号应该设置为 21</li>
+</ul>
+<h2 id="SSH-高级（知道）"><a href="#SSH-高级（知道）" class="headerlink" title="SSH 高级（知道）"></a>SSH 高级（知道）</h2><ul>
+<li>免密码登录</li>
+<li>配置别名<br>提示：有关 SSH 配置信息都保存在用户家目录下的 .ssh 目录下<br>免密码登录<br>步骤</li>
+<li>配置公钥<ul>
+<li>执行 ssh-keygen 即可生成 SSH 钥匙，一路回车即可</li>
+</ul>
+</li>
+<li>上传公钥到服务器<ul>
+<li>执行 ssh-copy-id -p port user@remote，可以让远程服务器记住我们的公钥<br>非对称加密算法</li>
+<li>使用 公钥 加密的数据，需要使用 私钥 解密</li>
+<li>使用 私钥 加密的数据，需要使用 公钥 解密<br>配置别名<br>每次都输入 ssh -p port user@remote，时间久了会觉得很麻烦，特别是当 user, remote 和 port 都得输入，而且还不好记忆<br>而 配置别名 可以让我们进一步偷懒，譬如用：ssh mac 来替代上面这么一长串，那么就在 ~/.ssh/config 里面追加以下内容：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Host mac</span><br><span class="line">    HostName ip地址</span><br><span class="line">    User itheima</span><br><span class="line">    Port 22</span><br></pre></td></tr></table></figure>
+保存之后，即可用 ssh mac 实现远程登录了，scp 同样可以使用</li>
+</ul>
+</li>
+</ul>
+<h1 id="用户权限相关命令"><a href="#用户权限相关命令" class="headerlink" title="用户权限相关命令"></a>用户权限相关命令</h1><p>目标<br>用户 和 权限 的基本概念<br>用户管理 终端命令<br>组管理 终端命令<br>修改权限 终端命令</p>
+<h2 id="用户-和-权限-的基本概念"><a href="#用户-和-权限-的基本概念" class="headerlink" title="用户 和 权限 的基本概念"></a>用户 和 权限 的基本概念</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>用户 是 Linux 系统工作中重要的一环，用户管理包括 用户 与 组 管理</li>
+<li>在 Linux 系统中，不论是由本机或是远程登录系统，每个系统都必须拥有一个账号，并且对于不同的系统资源拥有不同的使用权限</li>
+<li>在 Linux 中，可以指定 每一个用户 针对 不同的文件或者目录 的 不同权限</li>
+<li>对 文件／目录 的权限包括：<br>01    读    read    r    4<br>02    写    write    w    2<br>03    执行    excute    x    1</li>
+</ul>
+<h3 id="组"><a href="#组" class="headerlink" title="组"></a>组</h3><ul>
+<li>为了方便用户管理，提出了 组 的概念</li>
+<li>在实际应用中，可以预先针对 组 设置好权限，然后 将不同的用户添加到对应的组中，从而不用依次为每一个用户设置权限</li>
+</ul>
+<h3 id="ls-l-扩展"><a href="#ls-l-扩展" class="headerlink" title="ls -l 扩展"></a>ls -l 扩展</h3><ul>
+<li>ls -l 可以查看文件夹下文件的详细信息，从左到右依次是：</li>
+</ul>
+<ul>
+<li>权限，第 1 个字符如果是 d 表示目录</li>
+<li>硬链接数，通俗地讲，就是有多少种方式，可以访问到当前目录／文件</li>
+<li>拥有者，家目录下 文件／目录 的拥有者通常都是当前用户</li>
+<li>组，在 Linux 中，很多时候，会出现组名和用户名相同的情况，后续会讲</li>
+<li>大小</li>
+<li>时间</li>
+<li>名称</li>
+</ul>
+<h3 id="chmod-简单使用（重要）"><a href="#chmod-简单使用（重要）" class="headerlink" title="chmod 简单使用（重要）"></a>chmod 简单使用（重要）</h3><ul>
+<li>chmod 可以修改 用户／组 对 文件／目录 的权限</li>
+<li>命令格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod +&#x2F;-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="超级用户"><a href="#超级用户" class="headerlink" title="超级用户"></a>超级用户</h3><ul>
+<li>Linux 系统中的 root 账号通常 用于系统的维护和管理，对操作系统的所有资源 具有所有访问权限</li>
+<li>在大多数版本的 Linux 中，都不推荐 直接使用 root 账号登录系统</li>
+<li>在 Linux安装的过程中，系统会自动创建一个用户账号，而这个默认的用户就称为“标准用户”<br>sudo</li>
+<li>su 是 substitute user 的缩写，表示 使用另一个用户的身份</li>
+<li>sudo 命令用来以其他身份来执行命令，预设的身份为 root</li>
+<li>用户使用 sudo 时，必须先输入密码，之后有 5 分钟的有效期限，超过期限则必须重新输入密码<br>若其未经授权的用户企图使用 sudo，则会发出警告邮件给管理员</li>
+</ul>
+<h2 id="组管理-终端命令"><a href="#组管理-终端命令" class="headerlink" title="组管理 终端命令"></a>组管理 终端命令</h2><p>提示：创建组 / 删除组 的终端命令都需要通过 sudo 执行<br>01    groupadd 组名    添加组<br>02    groupdel 组名    删除组<br>03    cat /etc/group    确认组信息<br>04    chgrp -R 组名 文件/目录名    递归修改文件/目录的所属组<br>提示：</p>
+<ul>
+<li>组信息保存在 /etc/group 文件中</li>
+<li>/etc 目录是专门用来保存 系统配置信息 的目录</li>
+<li>在实际应用中，可以预先针对 组 设置好权限，然后 将不同的用户添加到对应的组中，从而不用依次为每一个用户设置权限</li>
+</ul>
+<h2 id="用户管理-终端命令"><a href="#用户管理-终端命令" class="headerlink" title="用户管理 终端命令"></a>用户管理 终端命令</h2><h3 id="创建用户／设置密码／删除用户"><a href="#创建用户／设置密码／删除用户" class="headerlink" title="创建用户／设置密码／删除用户"></a>创建用户／设置密码／删除用户</h3><p>01    useradd -m -g 组 新建用户名    添加新用户<br>-m 自动建立用户家目录<br>-g 指定用户所在的组，否则会建立一个和同名的组<br>02    passwd 用户名    设置用户密码    如果是普通用户，直接用 passwd 可以修改自己的账户密码<br>03    userdel -r 用户名    删除用户    -r 选项会自动删除用户家目录<br>04    cat /etc/passwd | grep 用户名    确认用户信息    新建用户后，用户信息会保存在 /etc/passwd 文件中<br>提示：</p>
+<ul>
+<li>创建用户时，如果忘记添加 -m 选项指定新用户的家目录 —— 最简单的方法就是删除用户，重新创建</li>
+<li>创建用户时，默认会创建一个和用户名同名的组名</li>
+<li>用户信息保存在 /etc/passwd 文件中</li>
+</ul>
+<h3 id="查看用户信息"><a href="#查看用户信息" class="headerlink" title="查看用户信息"></a>查看用户信息</h3><p>01    id [用户名]    查看用户 UID 和 GID 信息<br>02    who    查看当前所有登录的用户列表<br>03    whoami    查看当前登录用户的账户名<br>passwd 文件<br>/etc/passwd 文件存放的是用户的信息，由 6 个分号组成的 7 个信息，分别是</p>
+<ul>
+<li>用户名</li>
+<li>密码（x，表示加密的密码）</li>
+<li>UID（用户标识）</li>
+<li>GID（组标识）</li>
+<li>用户全名或本地帐号</li>
+<li>家目录</li>
+<li>登录使用的 Shell，就是登录之后，使用的终端命令，ubuntu 默认是 dash<br>usermod<br>usermod 可以用来设置 用户 的 主组 ／ 附加组 和 登录 Shell，命令格式如下：</li>
+<li>主组：通常在新建用户时指定，在 etc/passwd 的第 4 列 GID 对应的组</li>
+<li>附加组：在 etc/group 中最后一列表示该组的用户列表，用于指定 用户的附加权限<br>提示：设置了用户的附加组之后，需要重新登录才能生效！<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 修改用户的主组（passwd 中的 GID）</span><br><span class="line">usermod -g 组 用户名</span><br><span class="line"></span><br><span class="line"># 修改用户的附加组</span><br><span class="line">usermod -G 组 用户名</span><br><span class="line"></span><br><span class="line"># 修改用户登录 Shell</span><br><span class="line">usermod -s &#x2F;bin&#x2F;bash 用户名</span><br></pre></td></tr></table></figure>
+注意：默认使用 useradd 添加的用户是没有权限使用 sudo 以 root 身份执行命令的，可以使用以下命令，将用户添加到 sudo 附加组中<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usermod -G sudo 用户名</span><br></pre></td></tr></table></figure>
+which（重要）<br>提示</li>
+<li>/etc/passwd 是用于保存用户信息的文件</li>
+<li>/usr/bin/passwd 是用于修改用户密码的程序<br>which 命令可以查看执行命令所在位置，例如：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">which ls</span><br><span class="line"></span><br><span class="line"># 输出</span><br><span class="line"># &#x2F;bin&#x2F;ls</span><br><span class="line"></span><br><span class="line">which useradd</span><br><span class="line"></span><br><span class="line"># 输出</span><br><span class="line"># &#x2F;usr&#x2F;sbin&#x2F;useradd</span><br></pre></td></tr></table></figure>
+bin 和 sbin</li>
+<li>在 Linux 中，绝大多数可执行文件都是保存在 /bin、/sbin、/usr/bin、/usr/sbin</li>
+<li>/bin（binary）是二进制执行文件目录，主要用于具体应用</li>
+<li>/sbin（system binary）是系统管理员专用的二进制代码存放目录，主要用于系统管理</li>
+<li>/usr/bin（user commands for applications）后期安装的一些软件</li>
+<li>/usr/sbin（super user commands for applications）超级用户的一些管理程序<br>提示：</li>
+<li>cd 这个终端命令是内置在系统内核中的，没有独立的文件，因此用 which 无法找到 cd 命令的位置</li>
+</ul>
+<h3 id="切换用户"><a href="#切换用户" class="headerlink" title="切换用户"></a>切换用户</h3><p>01    su - 用户名    切换用户，并且切换目录    - 可以切换到用户家目录，否则保持位置不变<br>02    exit    退出当前登录账户    </p>
+<ul>
+<li>su 不接用户名，可以切换到 root，但是不推荐使用，因为不安全</li>
+</ul>
+<h2 id="修改文件权限"><a href="#修改文件权限" class="headerlink" title="修改文件权限"></a>修改文件权限</h2><p>01    chown    修改拥有者<br>02    chgrp    修改组<br>03    chmod    修改权限<br>命令格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 修改文件|目录的拥有者</span><br><span class="line">chown 用户名 文件名|目录名</span><br><span class="line"></span><br><span class="line"># 递归修改文件|目录的组</span><br><span class="line">chgrp -R 组名 文件名|目录名</span><br><span class="line"></span><br><span class="line"># 递归修改文件权限</span><br><span class="line">chmod -R 755 文件名|目录名</span><br></pre></td></tr></table></figure>
+<p>chmod 在设置权限时，可以简单地使用三个数字分别对应 拥有者 ／ 组 和 其他 用户的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 直接修改文件|目录的 读|写|执行 权限，但是不能精确到 拥有者|组|其他</span><br><span class="line">chmod +&#x2F;-rwx 文件名|目录名</span><br></pre></td></tr></table></figure>
+<ul>
+<li>常见数字组合有（u表示用户／g表示组／o表示其他）：<ul>
+<li>777 ===&gt; u=rwx,g=rwx,o=rwx</li>
+<li>755 ===&gt; u=rwx,g=rx,o=rx</li>
+<li>644 ===&gt; u=rw,g=r,o=r</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -523,7 +707,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-主要目录速查表"><span class="nav-number">1.</span> <span class="nav-text">Linux 主要目录速查表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用Linux命令"><span class="nav-number">2.</span> <span class="nav-text">常用Linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">2.1.</span> <span class="nav-text">小技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动补全"><span class="nav-number">3.</span> <span class="nav-text">自动补全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux终端命令格式"><span class="nav-number">4.</span> <span class="nav-text">Linux终端命令格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查阅命令帮助信息"><span class="nav-number">5.</span> <span class="nav-text">查阅命令帮助信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#–help"><span class="nav-number">5.1.</span> <span class="nav-text">–help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#man"><span class="nav-number">5.2.</span> <span class="nav-text">man</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件和目录常用命令"><span class="nav-number">6.</span> <span class="nav-text">文件和目录常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-命令说明"><span class="nav-number">6.1.</span> <span class="nav-text">ls 命令说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-常用选项"><span class="nav-number">6.1.1.</span> <span class="nav-text">ls 常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-通配符的使用"><span class="nav-number">6.1.2.</span> <span class="nav-text">ls 通配符的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换目录"><span class="nav-number">6.2.</span> <span class="nav-text">切换目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd"><span class="nav-number">6.2.1.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对路径和绝对路径"><span class="nav-number">6.2.2.</span> <span class="nav-text">相对路径和绝对路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和删除操作"><span class="nav-number">6.3.</span> <span class="nav-text">创建和删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">6.3.1.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">6.3.2.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">6.3.3.</span> <span class="nav-text">rm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝和移动文件"><span class="nav-number">6.4.</span> <span class="nav-text">拷贝和移动文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree"><span class="nav-number">6.4.1.</span> <span class="nav-text">tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">6.4.2.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">6.4.3.</span> <span class="nav-text">mv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">6.5.</span> <span class="nav-text">查看文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">6.5.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">6.5.2.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">6.5.3.</span> <span class="nav-text">grep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-文字内容"><span class="nav-number">6.6.1.</span> <span class="nav-text">echo 文字内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向-gt-和-gt-gt"><span class="nav-number">6.6.2.</span> <span class="nav-text">重定向 &gt; 和 &gt;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">6.6.3.</span> <span class="nav-text">管道 |</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-主要目录速查表"><span class="nav-number">1.</span> <span class="nav-text">Linux 主要目录速查表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用Linux命令"><span class="nav-number">2.</span> <span class="nav-text">常用Linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">2.1.</span> <span class="nav-text">小技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动补全"><span class="nav-number">3.</span> <span class="nav-text">自动补全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux终端命令格式"><span class="nav-number">4.</span> <span class="nav-text">Linux终端命令格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查阅命令帮助信息"><span class="nav-number">5.</span> <span class="nav-text">查阅命令帮助信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#–help"><span class="nav-number">5.1.</span> <span class="nav-text">–help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#man"><span class="nav-number">5.2.</span> <span class="nav-text">man</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件和目录常用命令"><span class="nav-number">6.</span> <span class="nav-text">文件和目录常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-命令说明"><span class="nav-number">6.1.</span> <span class="nav-text">ls 命令说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-常用选项"><span class="nav-number">6.1.1.</span> <span class="nav-text">ls 常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-通配符的使用"><span class="nav-number">6.1.2.</span> <span class="nav-text">ls 通配符的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换目录"><span class="nav-number">6.2.</span> <span class="nav-text">切换目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd"><span class="nav-number">6.2.1.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对路径和绝对路径"><span class="nav-number">6.2.2.</span> <span class="nav-text">相对路径和绝对路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和删除操作"><span class="nav-number">6.3.</span> <span class="nav-text">创建和删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">6.3.1.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">6.3.2.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">6.3.3.</span> <span class="nav-text">rm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝和移动文件"><span class="nav-number">6.4.</span> <span class="nav-text">拷贝和移动文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree"><span class="nav-number">6.4.1.</span> <span class="nav-text">tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">6.4.2.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">6.4.3.</span> <span class="nav-text">mv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">6.5.</span> <span class="nav-text">查看文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">6.5.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">6.5.2.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">6.5.3.</span> <span class="nav-text">grep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-文字内容"><span class="nav-number">6.6.1.</span> <span class="nav-text">echo 文字内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向-gt-和-gt-gt"><span class="nav-number">6.6.2.</span> <span class="nav-text">重定向 &gt; 和 &gt;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">6.6.3.</span> <span class="nav-text">管道 |</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程管理常用命令"><span class="nav-number">7.</span> <span class="nav-text">远程管理常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关机"><span class="nav-number">7.1.</span> <span class="nav-text">关机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shutdown"><span class="nav-number">7.1.1.</span> <span class="nav-text">shutdown</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看或配置网卡信息"><span class="nav-number">7.2.</span> <span class="nav-text">查看或配置网卡信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网卡-和-IP-地址"><span class="nav-number">7.2.1.</span> <span class="nav-text">网卡 和 IP 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig"><span class="nav-number">7.2.2.</span> <span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping"><span class="nav-number">7.2.3.</span> <span class="nav-text">ping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程登录和复制文件"><span class="nav-number">7.3.</span> <span class="nav-text">远程登录和复制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-基础（重点）"><span class="nav-number">7.3.1.</span> <span class="nav-text">ssh 基础（重点）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scp"><span class="nav-number">7.4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-高级（知道）"><span class="nav-number">7.5.</span> <span class="nav-text">SSH 高级（知道）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户权限相关命令"><span class="nav-number">8.</span> <span class="nav-text">用户权限相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户-和-权限-的基本概念"><span class="nav-number">8.1.</span> <span class="nav-text">用户 和 权限 的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">8.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组"><span class="nav-number">8.1.2.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-l-扩展"><span class="nav-number">8.1.3.</span> <span class="nav-text">ls -l 扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod-简单使用（重要）"><span class="nav-number">8.1.4.</span> <span class="nav-text">chmod 简单使用（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超级用户"><span class="nav-number">8.1.5.</span> <span class="nav-text">超级用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组管理-终端命令"><span class="nav-number">8.2.</span> <span class="nav-text">组管理 终端命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理-终端命令"><span class="nav-number">8.3.</span> <span class="nav-text">用户管理 终端命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户／设置密码／删除用户"><span class="nav-number">8.3.1.</span> <span class="nav-text">创建用户／设置密码／删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户信息"><span class="nav-number">8.3.2.</span> <span class="nav-text">查看用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户"><span class="nav-number">8.3.3.</span> <span class="nav-text">切换用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件权限"><span class="nav-number">8.4.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
