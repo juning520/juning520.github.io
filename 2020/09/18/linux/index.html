@@ -23,18 +23,18 @@
   <meta name="description" content="Linux 主要目录速查表 &#x2F;：根目录，一般根目录下只存放目录，在 linux 下有且只有一个根目录，所有的东西都是从这里开始当在终端里输入 &#x2F;home，其实是在告诉电脑，先从 &#x2F;（根目录）开始，再进入到 home 目录 &#x2F;bin、&#x2F;usr&#x2F;bin：可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等 &#x2F;boot：放置 linux 系统启动时用到的一些文件，如 linux 的内核文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux">
-<meta property="og:url" content="https://pythonj.com/2020/09/18/title/index.html">
+<meta property="og:url" content="https://pythonj.com/2020/09/18/linux/index.html">
 <meta property="og:site_name" content="PythonJ">
 <meta property="og:description" content="Linux 主要目录速查表 &#x2F;：根目录，一般根目录下只存放目录，在 linux 下有且只有一个根目录，所有的东西都是从这里开始当在终端里输入 &#x2F;home，其实是在告诉电脑，先从 &#x2F;（根目录）开始，再进入到 home 目录 &#x2F;bin、&#x2F;usr&#x2F;bin：可执行二进制文件的目录，如常用的命令 ls、tar、mv、cat 等 &#x2F;boot：放置 linux 系统启动时用到的一些文件，如 linux 的内核文">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-09-18T10:36:16.000Z">
-<meta property="article:modified_time" content="2020-09-20T12:38:46.134Z">
+<meta property="article:modified_time" content="2020-09-29T10:32:40.864Z">
 <meta property="article:author" content="juning520">
 <meta property="article:tag" content="导航">
 <meta property="article:tag" content="分享">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://pythonj.com/2020/09/18/title/">
+<link rel="canonical" href="https://pythonj.com/2020/09/18/linux/">
 
 
 <script id="page-configurations">
@@ -162,7 +162,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://pythonj.com/2020/09/18/title/">
+    <link itemprop="mainEntityOfPage" href="https://pythonj.com/2020/09/18/linux/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar1.gif">
@@ -192,7 +192,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-09-20 20:38:46" itemprop="dateModified" datetime="2020-09-20T20:38:46+08:00">2020-09-20</time>
+                <time title="修改时间：2020-09-29 18:32:40" itemprop="dateModified" datetime="2020-09-29T18:32:40+08:00">2020-09-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -606,6 +606,117 @@ bin 和 sbin</li>
 </ul>
 </li>
 </ul>
+<h1 id="系统信息相关命令"><a href="#系统信息相关命令" class="headerlink" title="系统信息相关命令"></a>系统信息相关命令</h1><ul>
+<li>本节内容主要是为了方便通过远程终端维护服务器时，查看服务器上当前 系统日期和时间 ／ 磁盘空间占用情况 ／ 程序执行情况</li>
+<li>本小结学习的终端命令基本都是查询命令，通过这些命令对系统资源的使用情况有个了解</li>
+</ul>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>时间和日期<ul>
+<li>date</li>
+<li>cal</li>
+</ul>
+</li>
+<li>磁盘和目录空间<ul>
+<li>df</li>
+<li>du</li>
+</ul>
+</li>
+<li>进程信息<ul>
+<li>ps</li>
+<li>top</li>
+<li>kill</li>
+</ul>
+</li>
+</ul>
+<h2 id="时间和日期"><a href="#时间和日期" class="headerlink" title="时间和日期"></a>时间和日期</h2><p>01    date    查看系统时间<br>02    cal    calendar 查看日历，-y 选项可以查看一年的日历</p>
+<h2 id="磁盘信息"><a href="#磁盘信息" class="headerlink" title="磁盘信息"></a>磁盘信息</h2><p>01    df -h    disk free 显示磁盘剩余空间<br>02    du -h [目录名]    disk usage 显示目录下的文件大小</p>
+<ul>
+<li>-h    以人性化的方式显示文件大小<h2 id="进程信息"><a href="#进程信息" class="headerlink" title="进程信息"></a>进程信息</h2></li>
+<li>所谓 进程，通俗地说就是 当前正在执行的一个程序<br>01    ps aux    process status 查看进程的详细状况<br>02    top    动态显示运行中的进程并且排序<br>03    kill [-9] 进程代号    终止指定代号的进程，-9 表示强行终止</li>
+<li>ps 默认只会显示当前用户通过终端启动的应用程序<br>ps 选项说明功能<br>a    显示终端上的所有进程，包括其他用户的进程<br>u    显示进程的详细状态<br>x    显示没有控制终端的进程<br>提示：使用 kill 命令时，最好只终止由当前用户开启的进程，而不要终止 root 身份开启的进程，否则可能导致系统崩溃<br>要退出 top 可以直接输入 q</li>
+</ul>
+<h1 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h1><h2 id="目标-1"><a href="#目标-1" class="headerlink" title="目标"></a>目标</h2><ul>
+<li>查找文件<ul>
+<li>find</li>
+</ul>
+</li>
+<li>软链接<ul>
+<li>ln</li>
+</ul>
+</li>
+<li>打包和压缩<ul>
+<li>tar</li>
+</ul>
+</li>
+<li>软件安装<ul>
+<li>apt-get</li>
+</ul>
+</li>
+</ul>
+<h2 id="查找文件"><a href="#查找文件" class="headerlink" title="查找文件"></a>查找文件</h2><ul>
+<li>find 命令功能非常强大，通常用来在 特定的目录下 搜索 符合条件的文件<br>1    find [路径] -name “*.py”    查找指定路径下扩展名是 .py 的文件，包括子目录</li>
+<li>如果省略路径，表示在当前文件夹下查找</li>
+<li>之前学习的通配符，在使用 find 命令时同时可用<br>演练</li>
+</ul>
+<ol>
+<li>搜索桌面目录下，文件名包含 1 的文件<br><code>find -name &quot;*1*&quot;</code></li>
+<li>搜索桌面目录下，所有以 .txt 为扩展名的文件<br><code>find -name &quot;*.txt&quot;</code></li>
+<li>搜索桌面目录下，以数字 1 开头的文件<br><code>find -name &quot;1*&quot;</code></li>
+</ol>
+<h2 id="软链接"><a href="#软链接" class="headerlink" title="软链接"></a>软链接</h2><p>01    ln -s 被链接的源文件 链接文件    建立文件的软链接，用通俗的方式讲类似于 Windows 下的快捷方式</p>
+<ul>
+<li>注意：</li>
+</ul>
+<ol>
+<li>没有 -s 选项建立的是一个 硬链接文件<br>两个文件占用相同大小的硬盘空间，工作中几乎不会建立文件的硬链接</li>
+<li>源文件要使用绝对路径，不能使用相对路径，这样可以方便移动链接文件后，仍然能够正常使用</li>
+</ol>
+<h2 id="硬链接"><a href="#硬链接" class="headerlink" title="硬链接"></a>硬链接</h2><ul>
+<li>在使用 ln 创建链接时，如果没有 -s 选项，会创建一个 硬链接，而不是软链接<br>在 Linux 中，文件名 和 文件的数据 是分开存储的<br>在 Linux 中，文件名 和 文件的数据 是分开存储的<br>提示：</li>
+<li>在 Linux 中，只有文件的 硬链接数 == 0 才会被删除</li>
+<li>使用 ls -l 可以查看一个文件的硬链接的数量</li>
+<li>在日常工作中，几乎不会建立文件的硬链接，知道即可</li>
+</ul>
+<h2 id="打包-解包"><a href="#打包-解包" class="headerlink" title="打包/解包"></a>打包/解包</h2><ul>
+<li>tar 是 Linux 中最常用的 备份工具，此命令可以 把一系列文件 打包到 一个大文件中，也可以把一个 打包的大文件恢复成一系列文件</li>
+<li>tar 的命令格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 打包文件</span><br><span class="line">tar -cvf 打包文件.tar 被打包的文件／路径...</span><br><span class="line"></span><br><span class="line"># 解包文件</span><br><span class="line">tar -xvf 打包文件.tar</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ul>
+<li>tar 选项说明<br>c    生成档案文件，创建打包文件<br>x    解开档案文件<br>v    列出归档解档的详细过程，显示进度<br>f    指定档案文件名称，f 后面一定是 .tar 文件，所以必须放选项最后<br>注意：f 选项必须放在最后，其他选项顺序可以随意</li>
+</ul>
+<h2 id="压缩-解压缩"><a href="#压缩-解压缩" class="headerlink" title="压缩/解压缩"></a>压缩/解压缩</h2><p>1) gzip</p>
+<ul>
+<li>tar 与 gzip 命令结合可以使用实现文件 打包和压缩<ul>
+<li>tar 只负责打包文件，但不压缩</li>
+<li>用 gzip 压缩 tar 打包后的文件，其扩展名一般用 xxx.tar.gz<br>在 Linux 中，最常见的压缩文件格式就是 xxx.tar.gz</li>
+</ul>
+</li>
+<li>在 tar 命令中有一个选项 -z 可以调用 gzip，从而可以方便的实现压缩和解压缩的功能</li>
+<li>命令格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 压缩文件</span><br><span class="line">tar -zcvf 打包文件.tar.gz 被压缩的文件／路径...</span><br><span class="line"></span><br><span class="line"># 解压缩文件</span><br><span class="line">tar -zxvf 打包文件.tar.gz</span><br><span class="line"></span><br><span class="line"># 解压缩到指定路径</span><br><span class="line">tar -zxvf 打包文件.tar.gz -C 目标路径</span><br></pre></td></tr></table></figure></li>
+<li>C    解压缩到指定目录，注意：要解压缩的目录必须存在<br>2) bzip2(two)</li>
+<li>tar 与 bzip2 命令结合可以使用实现文件 打包和压缩（用法和 gzip 一样）<ul>
+<li>tar 只负责打包文件，但不压缩，</li>
+<li>用 bzip2 压缩 tar 打包后的文件，其扩展名一般用 xxx.tar.bz2</li>
+</ul>
+</li>
+<li>在 tar 命令中有一个选项 -j 可以调用 bzip2，从而可以方便的实现压缩和解压缩的功能</li>
+<li>命令格式如下：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 压缩文件</span><br><span class="line">tar -jcvf 打包文件.tar.bz2 被压缩的文件／路径...</span><br><span class="line"></span><br><span class="line"># 解压缩文件</span><br><span class="line">tar -jxvf 打包文件.tar.bz2</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h2><h3 id="通过-apt-安装／卸载软件"><a href="#通过-apt-安装／卸载软件" class="headerlink" title="通过 apt 安装／卸载软件"></a>通过 apt 安装／卸载软件</h3><ul>
+<li>apt 是 Advanced Packaging Tool，是 Linux 下的一款安装包管理工具</li>
+<li>可以在终端中方便的 安装／卸载／更新软件包</li>
+</ul>
+<ol>
+<li>安装软件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 1. 安装软件</span><br><span class="line">$ sudo apt install 软件包</span><br><span class="line"></span><br><span class="line"># 2. 卸载软件</span><br><span class="line">$ sudo apt remove 软件名</span><br><span class="line"></span><br><span class="line"># 3. 更新已安装的包</span><br><span class="line">$ sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h2 id="配置软件源"><a href="#配置软件源" class="headerlink" title="配置软件源"></a>配置软件源</h2><ul>
+<li>如果希望在 ubuntu 中安装软件，更加快速，可以通过设置镜像源，选择一个访问网速更快的服务器，来提供软件下载／安装服务</li>
+<li>提示：更换服务器之后，需要一个相对比较长时间的更新过程，需要耐心等待。更新完成后，再安装软件都会从新设置的服务器下载软件了<br>所谓镜像源，就是所有服务器的内容是相同的（镜像），但是根据所在位置不同，国内服务器通常速度会更快一些！</li>
+</ul>
 
     </div>
 
@@ -645,10 +756,13 @@ bin 和 sbin</li>
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/07/19/day5/" rel="prev" title="css">
+    <a href="/2020/07/19/css/" rel="prev" title="css">
       <i class="fa fa-chevron-left"></i> css
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/09/29/vi%E7%BC%96%E8%BE%91%E5%99%A8/" rel="next" title="vi编辑器">
+      vi编辑器 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -707,7 +821,7 @@ bin 和 sbin</li>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-主要目录速查表"><span class="nav-number">1.</span> <span class="nav-text">Linux 主要目录速查表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用Linux命令"><span class="nav-number">2.</span> <span class="nav-text">常用Linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">2.1.</span> <span class="nav-text">小技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动补全"><span class="nav-number">3.</span> <span class="nav-text">自动补全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux终端命令格式"><span class="nav-number">4.</span> <span class="nav-text">Linux终端命令格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查阅命令帮助信息"><span class="nav-number">5.</span> <span class="nav-text">查阅命令帮助信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#–help"><span class="nav-number">5.1.</span> <span class="nav-text">–help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#man"><span class="nav-number">5.2.</span> <span class="nav-text">man</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件和目录常用命令"><span class="nav-number">6.</span> <span class="nav-text">文件和目录常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-命令说明"><span class="nav-number">6.1.</span> <span class="nav-text">ls 命令说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-常用选项"><span class="nav-number">6.1.1.</span> <span class="nav-text">ls 常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-通配符的使用"><span class="nav-number">6.1.2.</span> <span class="nav-text">ls 通配符的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换目录"><span class="nav-number">6.2.</span> <span class="nav-text">切换目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd"><span class="nav-number">6.2.1.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对路径和绝对路径"><span class="nav-number">6.2.2.</span> <span class="nav-text">相对路径和绝对路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和删除操作"><span class="nav-number">6.3.</span> <span class="nav-text">创建和删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">6.3.1.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">6.3.2.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">6.3.3.</span> <span class="nav-text">rm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝和移动文件"><span class="nav-number">6.4.</span> <span class="nav-text">拷贝和移动文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree"><span class="nav-number">6.4.1.</span> <span class="nav-text">tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">6.4.2.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">6.4.3.</span> <span class="nav-text">mv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">6.5.</span> <span class="nav-text">查看文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">6.5.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">6.5.2.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">6.5.3.</span> <span class="nav-text">grep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-文字内容"><span class="nav-number">6.6.1.</span> <span class="nav-text">echo 文字内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向-gt-和-gt-gt"><span class="nav-number">6.6.2.</span> <span class="nav-text">重定向 &gt; 和 &gt;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">6.6.3.</span> <span class="nav-text">管道 |</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程管理常用命令"><span class="nav-number">7.</span> <span class="nav-text">远程管理常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关机"><span class="nav-number">7.1.</span> <span class="nav-text">关机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shutdown"><span class="nav-number">7.1.1.</span> <span class="nav-text">shutdown</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看或配置网卡信息"><span class="nav-number">7.2.</span> <span class="nav-text">查看或配置网卡信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网卡-和-IP-地址"><span class="nav-number">7.2.1.</span> <span class="nav-text">网卡 和 IP 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig"><span class="nav-number">7.2.2.</span> <span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping"><span class="nav-number">7.2.3.</span> <span class="nav-text">ping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程登录和复制文件"><span class="nav-number">7.3.</span> <span class="nav-text">远程登录和复制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-基础（重点）"><span class="nav-number">7.3.1.</span> <span class="nav-text">ssh 基础（重点）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scp"><span class="nav-number">7.4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-高级（知道）"><span class="nav-number">7.5.</span> <span class="nav-text">SSH 高级（知道）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户权限相关命令"><span class="nav-number">8.</span> <span class="nav-text">用户权限相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户-和-权限-的基本概念"><span class="nav-number">8.1.</span> <span class="nav-text">用户 和 权限 的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">8.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组"><span class="nav-number">8.1.2.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-l-扩展"><span class="nav-number">8.1.3.</span> <span class="nav-text">ls -l 扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod-简单使用（重要）"><span class="nav-number">8.1.4.</span> <span class="nav-text">chmod 简单使用（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超级用户"><span class="nav-number">8.1.5.</span> <span class="nav-text">超级用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组管理-终端命令"><span class="nav-number">8.2.</span> <span class="nav-text">组管理 终端命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理-终端命令"><span class="nav-number">8.3.</span> <span class="nav-text">用户管理 终端命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户／设置密码／删除用户"><span class="nav-number">8.3.1.</span> <span class="nav-text">创建用户／设置密码／删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户信息"><span class="nav-number">8.3.2.</span> <span class="nav-text">查看用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户"><span class="nav-number">8.3.3.</span> <span class="nav-text">切换用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件权限"><span class="nav-number">8.4.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-主要目录速查表"><span class="nav-number">1.</span> <span class="nav-text">Linux 主要目录速查表</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常用Linux命令"><span class="nav-number">2.</span> <span class="nav-text">常用Linux命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#小技巧"><span class="nav-number">2.1.</span> <span class="nav-text">小技巧</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自动补全"><span class="nav-number">3.</span> <span class="nav-text">自动补全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux终端命令格式"><span class="nav-number">4.</span> <span class="nav-text">Linux终端命令格式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#查阅命令帮助信息"><span class="nav-number">5.</span> <span class="nav-text">查阅命令帮助信息</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#–help"><span class="nav-number">5.1.</span> <span class="nav-text">–help</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#man"><span class="nav-number">5.2.</span> <span class="nav-text">man</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件和目录常用命令"><span class="nav-number">6.</span> <span class="nav-text">文件和目录常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ls-命令说明"><span class="nav-number">6.1.</span> <span class="nav-text">ls 命令说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-常用选项"><span class="nav-number">6.1.1.</span> <span class="nav-text">ls 常用选项</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-通配符的使用"><span class="nav-number">6.1.2.</span> <span class="nav-text">ls 通配符的使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切换目录"><span class="nav-number">6.2.</span> <span class="nav-text">切换目录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cd"><span class="nav-number">6.2.1.</span> <span class="nav-text">cd</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对路径和绝对路径"><span class="nav-number">6.2.2.</span> <span class="nav-text">相对路径和绝对路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建和删除操作"><span class="nav-number">6.3.</span> <span class="nav-text">创建和删除操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#touch"><span class="nav-number">6.3.1.</span> <span class="nav-text">touch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mkdir"><span class="nav-number">6.3.2.</span> <span class="nav-text">mkdir</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rm"><span class="nav-number">6.3.3.</span> <span class="nav-text">rm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#拷贝和移动文件"><span class="nav-number">6.4.</span> <span class="nav-text">拷贝和移动文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tree"><span class="nav-number">6.4.1.</span> <span class="nav-text">tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cp"><span class="nav-number">6.4.2.</span> <span class="nav-text">cp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mv"><span class="nav-number">6.4.3.</span> <span class="nav-text">mv</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看文件内容"><span class="nav-number">6.5.</span> <span class="nav-text">查看文件内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cat"><span class="nav-number">6.5.1.</span> <span class="nav-text">cat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">6.5.2.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#grep"><span class="nav-number">6.5.3.</span> <span class="nav-text">grep</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">6.6.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#echo-文字内容"><span class="nav-number">6.6.1.</span> <span class="nav-text">echo 文字内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重定向-gt-和-gt-gt"><span class="nav-number">6.6.2.</span> <span class="nav-text">重定向 &gt; 和 &gt;&gt;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#管道"><span class="nav-number">6.6.3.</span> <span class="nav-text">管道 |</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程管理常用命令"><span class="nav-number">7.</span> <span class="nav-text">远程管理常用命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#关机"><span class="nav-number">7.1.</span> <span class="nav-text">关机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#shutdown"><span class="nav-number">7.1.1.</span> <span class="nav-text">shutdown</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看或配置网卡信息"><span class="nav-number">7.2.</span> <span class="nav-text">查看或配置网卡信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#网卡-和-IP-地址"><span class="nav-number">7.2.1.</span> <span class="nav-text">网卡 和 IP 地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ifconfig"><span class="nav-number">7.2.2.</span> <span class="nav-text">ifconfig</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping"><span class="nav-number">7.2.3.</span> <span class="nav-text">ping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程登录和复制文件"><span class="nav-number">7.3.</span> <span class="nav-text">远程登录和复制文件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ssh-基础（重点）"><span class="nav-number">7.3.1.</span> <span class="nav-text">ssh 基础（重点）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#scp"><span class="nav-number">7.4.</span> <span class="nav-text">scp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SSH-高级（知道）"><span class="nav-number">7.5.</span> <span class="nav-text">SSH 高级（知道）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用户权限相关命令"><span class="nav-number">8.</span> <span class="nav-text">用户权限相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户-和-权限-的基本概念"><span class="nav-number">8.1.</span> <span class="nav-text">用户 和 权限 的基本概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本概念"><span class="nav-number">8.1.1.</span> <span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#组"><span class="nav-number">8.1.2.</span> <span class="nav-text">组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ls-l-扩展"><span class="nav-number">8.1.3.</span> <span class="nav-text">ls -l 扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod-简单使用（重要）"><span class="nav-number">8.1.4.</span> <span class="nav-text">chmod 简单使用（重要）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#超级用户"><span class="nav-number">8.1.5.</span> <span class="nav-text">超级用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组管理-终端命令"><span class="nav-number">8.2.</span> <span class="nav-text">组管理 终端命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户管理-终端命令"><span class="nav-number">8.3.</span> <span class="nav-text">用户管理 终端命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建用户／设置密码／删除用户"><span class="nav-number">8.3.1.</span> <span class="nav-text">创建用户／设置密码／删除用户</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看用户信息"><span class="nav-number">8.3.2.</span> <span class="nav-text">查看用户信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切换用户"><span class="nav-number">8.3.3.</span> <span class="nav-text">切换用户</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件权限"><span class="nav-number">8.4.</span> <span class="nav-text">修改文件权限</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统信息相关命令"><span class="nav-number">9.</span> <span class="nav-text">系统信息相关命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标"><span class="nav-number">9.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间和日期"><span class="nav-number">9.2.</span> <span class="nav-text">时间和日期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘信息"><span class="nav-number">9.3.</span> <span class="nav-text">磁盘信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程信息"><span class="nav-number">9.4.</span> <span class="nav-text">进程信息</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他命令"><span class="nav-number">10.</span> <span class="nav-text">其他命令</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目标-1"><span class="nav-number">10.1.</span> <span class="nav-text">目标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查找文件"><span class="nav-number">10.2.</span> <span class="nav-text">查找文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软链接"><span class="nav-number">10.3.</span> <span class="nav-text">软链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#硬链接"><span class="nav-number">10.4.</span> <span class="nav-text">硬链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打包-解包"><span class="nav-number">10.5.</span> <span class="nav-text">打包&#x2F;解包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#压缩-解压缩"><span class="nav-number">10.6.</span> <span class="nav-text">压缩&#x2F;解压缩</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件安装"><span class="nav-number">10.7.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过-apt-安装／卸载软件"><span class="nav-number">10.7.1.</span> <span class="nav-text">通过 apt 安装／卸载软件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置软件源"><span class="nav-number">10.8.</span> <span class="nav-text">配置软件源</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -730,7 +844,7 @@ bin 和 sbin</li>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
